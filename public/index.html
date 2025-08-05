@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Web App</title>
+</head>
+<body>
+  <h1>Welcome to the Demo Web App</h1>
+
+  <h2>This is my Homepage</h2>
+  <button id="greetBtn">Greet</button>
+  <p id="greetMsg"></p>
+  <script>
+    document.getElementById('greetBtn').onclick = async () => {
+      const res = await fetch('/api/greet');
+      const data = await res.json();
+      document.getElementById('greetMsg').textContent = data.message;
+    };
+  </script>
+</body>
+</html>
