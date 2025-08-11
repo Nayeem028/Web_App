@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Academic Results - Demo Web App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 32px;
+      text-align: center;
+    }
+    h1 {
+      color: #2d3e50;
+      margin-bottom: 8px;
+    }
+    h2 {
+      color: #4a90e2;
+      margin-bottom: 24px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eaeaea;
+      text-align: left;
+    }
+    th {
+      background: #f0f4fa;
+      color: #2d3e50;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    #greetBtn {
+      background: #4a90e2;
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    #greetBtn:hover {
+      background: #357abd;
+    }
+    #greetMsg {
+      color: #2d3e50;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to My Academic Results</h1>
+    <h2>This is my Homepage</h2>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Grade</th>
+      </tr>
+      <tr>
+        <td>Mathematics</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td>B+</td>
+      </tr>
+      <tr>
+        <td>Science</td>
+        <td>A-</td>
+      </tr>
+      <tr>
+        <td>History</td>
+        <td>B</td>
+      </tr>
+    </table>
+    <button id="greetBtn">Greet</button>
+    <p id="greetMsg"></p>
+  </div>
+  <script>
+    document.getElementById('greetBtn').onclick = async () => {
+      const res = await fetch('/api/greet');
+      const data = await res.json();
+      document.getElementById('greetMsg').textContent = data.message;
+    };
+  </script>
+</body>
+</html>
