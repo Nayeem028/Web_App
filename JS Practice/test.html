@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test file </title>
+    <title>Test file</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Test HTML File</h1>
@@ -11,6 +12,7 @@
     <p>Make sure to link the JavaScript file correctly.</p>
 
     <p>mckdmfmvvfmfkgmfk fdgnkfgnjf fgmnkfjgkf fgmnfkhnkfn ddfkdjfkdjkjkdjkjk</p>
+
     <table>
         <thead>
             <tr>
@@ -37,8 +39,26 @@
             </tr>
         </tbody>
     </table>
-    <link rel="stylesheet" href="style.css">
-    <script src="Day 01.js"></script>
 
+    <button id="greetBtn">Greet Me</button>
+    <p id="greetMsg"></p>
+
+    <script src="Day 01.js"></script>
+    <script>
+        console.log("Test file loaded successfully.");
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const greetBtn = document.getElementById("greetBtn");
+            const greetMsg = document.getElementById("greetMsg");
+
+            if (greetBtn) {
+                greetBtn.addEventListener("click", function() {
+                    greetMsg.textContent = "Hello, welcome to the test page!";
+                });
+            } else {
+                console.error("Greet button not found.");
+            }
+        });
+    </script>
 </body>
 </html>
